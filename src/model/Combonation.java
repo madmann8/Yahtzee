@@ -10,14 +10,15 @@ import java.util.*;
 
 public class Combonation {
 
-    private HashMap<Combonations, Integer[]> mDiceCombosMap=new HashMap<>();
-    private HashMap<Combonations, Integer> mDiceComboValues=new HashMap<>();
-    private HashMap<Combonations, String> mStringMap=new HashMap<>();
+    private HashMap<Combonations, Integer[]> mDiceCombosMap = new HashMap<>();
+    private HashMap<Combonations, Integer> mDiceComboValues = new HashMap<>();
+    private HashMap<Combonations, String> mStringMap = new HashMap<>();
 
     public Combonation() {
         toMapDiceCombonations();
         toMapString();
-        toMapCombonationValues();}
+        toMapCombonationValues();
+    }
 
     private void toMapDiceCombonations() {
         Integer[] ONEACE = new Integer[]{1};
@@ -103,7 +104,7 @@ public class Combonation {
         Integer[] YATZEE2 = {2, 2, 2, 2, 2};
         Integer[] YATZEE4 = {4, 4, 4, 4, 4};
         Integer[] YATZEE5 = {5, 5, 5, 5, 5};
-        Integer[] CHANCE = {1,2};
+        Integer[] CHANCE = {1, 2};
 
         mDiceCombosMap.put(Combonations.ONEACE, ONEACE);
         mDiceCombosMap.put(Combonations.TWOACES, TWOACES);
@@ -192,7 +193,8 @@ public class Combonation {
 
 
     }
-//Test
+
+    //Test
     private void toMapString() {
         String ONEACE = "One Ace";
         String TWOACES = "foo hi";
@@ -545,8 +547,12 @@ public class Combonation {
         for (Map.Entry<Combonations, Integer[]> combo : mDiceCombosMap.entrySet()) {
             Combonations key = combo.getKey();
             Integer[] value = combo.getValue();
-            if (list.contains(Arrays.asList(value))){
-                results.add(key);
+            ArrayList<Integer> betterList = new ArrayList<Integer>();
+            for (Integer integer : value) {
+                betterList.add(integer);
+                if (list.contains(betterList)){
+                    results.add(key);
+                }
             }
         }
         return results;
