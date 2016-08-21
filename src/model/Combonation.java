@@ -196,90 +196,90 @@ public class Combonation {
 
     //Test
     private void toMapString() {
-        String ONEACE = "One Ace";
-        String TWOACES = "foo hi";
-        String THREEACES = "foo";
-        String FOURACES = "foo";
-        String FIVEACES = "foo";
-        String ONETWO = "foo";
-        String TWOTWOS = "foo";
-        String THREETWOS = "foo";
-        String FOURTWOS = "foo";
-        String FIVETWOS = "foo";
-        String ONETHREES = "foo";
-        String TWOTHREES = "foo";
-        String THREETHREES = "foo";
-        String FOURTHREES = "foo";
-        String FIVETHREES = "foo";
-        String ONEFOUR = "foo";
-        String TWOFOURS = "foo";
-        String THREEFOURS = "foo";
-        String FOURFOURS = "foo";
-        String FIVEFOURS = "foo";
-        String ONEFIVE = "foo";
-        String TWOFIVES = "foo";
-        String THREEFIVES = "foo";
-        String FOURFIVES = "foo";
-        String FIVEFIVES = "foo";
-        String ONESIX = "foo";
-        String TWOSIXES = "foo";
-        String THREESIXES = "foo";
-        String FOURSIXES = "foo";
-        String FIVESIXES = "foo";
-        String THREEOFAONES = "foo";
-        String THREEOFATWOS = "foo";
-        String THREEOFATHREES = "foo";
-        String THREEOFAFOURS = "foo";
-        String THREEOFAFIVES = "foo";
-        String THREEOFASIXES = "foo";
-        String FOUROFAONES = "foo";
-        String FOUROFATWOS = "foo";
-        String FOUROFATHREES = "foo";
-        String FOUROFAFOURS = "foo";
-        String FOUROFAFIVES = "foo";
-        String FOUROFASIXES = "foo";
-        String FULLHOUSE1 = "foo";
-        String FULLHOUSE2 = "foo";
-        String FULLHOUSE3 = "foo";
-        String FULLHOUSE4 = "foo";
-        String FULLHOUSE5 = "foo";
-        String FULLHOUSE6 = "foo";
-        String FULLHOUSE7 = "foo";
-        String FULLHOUSE8 = "foo";
-        String FULLHOUSE9 = "foo";
-        String FULLHOUSE10 = "foo";
-        String FULLHOUSE11 = "foo";
-        String FULLHOUSE12 = "foo";
-        String FULLHOUSE13 = "foo";
-        String FULLHOUSE14 = "foo";
-        String FULLHOUSE15 = "foo";
-        String FULLHOUSE16 = "foo";
-        String FULLHOUSE17 = "foo";
-        String FULLHOUSE18 = "foo";
-        String FULLHOUSE19 = "foo";
-        String FULLHOUSE20 = "foo";
-        String FULLHOUSE21 = "foo";
-        String FULLHOUSE22 = "foo";
-        String FULLHOUSE23 = "foo";
-        String FULLHOUSE24 = "foo";
-        String FULLHOUSE25 = "foo";
-        String FULLHOUSE26 = "foo";
-        String FULLHOUSE27 = "foo";
-        String FULLHOUSE28 = "foo";
-        String FULLHOUSE29 = "foo";
-        String FULLHOUSE30 = "foo";
-        String SMALLSTRIGHT1 = "foo";
-        String SMALLSTRAIGHT2 = "foo";
-        String SMALLSTRAIGHT3 = "foo";
-        String LARGESTRAIGHT1 = "foo";
-        String LARGESTRAIGHT2 = "foo";
-        String YATZEE1 = "foo";
-        String YATZEE2 = "foo";
-        String YATZEE3 = "foo";
-        String YATZEE4 = "foo";
-        String YATZEE5 = "foo";
-        String YATZEE6 = "foo";
-        String CHANCE = "";
+        String ONEACE ="One Ace";
+        String TWOACES ="Two Aces";
+        String THREEACES ="Three Aces";
+        String FOURACES ="Four Aces";
+        String FIVEACES ="Five Aces";
+        String ONETWO ="One Two";
+        String TWOTWOS ="Two Twos";
+        String THREETWOS ="Three Twos";
+        String FOURTWOS ="Four Twos";
+        String FIVETWOS ="Five Twos";
+        String ONETHREES ="One Three";
+        String TWOTHREES ="Two Threes";
+        String THREETHREES ="Three Threes";
+        String FOURTHREES ="Four Threes";
+        String FIVETHREES ="Five Threes";
+        String ONEFOUR ="One Four";
+        String TWOFOURS ="Two Fours";
+        String THREEFOURS ="Three Fours";
+        String FOURFOURS ="Four Fours";
+        String FIVEFOURS ="Five Twos";
+        String ONEFIVE ="One Five";
+        String TWOFIVES ="Two Fives";
+        String THREEFIVES ="Three Fives";
+        String FOURFIVES ="Four Fives";
+        String FIVEFIVES ="Five Fives";
+        String ONESIX ="One Six";
+        String TWOSIXES ="Two Sixes";
+        String THREESIXES ="Three Sixes";
+        String FOURSIXES ="Four Sixes";
+        String FIVESIXES ="Five Sixes";
+        String THREEOFAONES ="Three of a Kind: Ones";
+        String THREEOFATWOS ="Three of a Kind: Twos";
+        String THREEOFATHREES ="Three of a Kind: Threes";
+        String THREEOFAFOURS ="Three of a Kind: Fours";
+        String THREEOFAFIVES ="Three of a Kind: Fives";
+        String THREEOFASIXES ="Three of a Kind: Sixes";
+        String FOUROFAONES ="Four of a Kind: Ones";
+        String FOUROFATWOS ="Four of a Kind: Twos";
+        String FOUROFATHREES ="Four of a Kind: Threes";
+        String FOUROFAFOURS ="Four of a Kind: Fours";
+        String FOUROFAFIVES ="Four of a Kind: Fives";
+        String FOUROFASIXES ="Four of a Kind: Sixes";
+        String FULLHOUSE1 ="Full House";
+        String FULLHOUSE2 ="Full House";
+        String FULLHOUSE3 ="Full House";
+        String FULLHOUSE4 ="Full House";
+        String FULLHOUSE5 ="Full House";
+        String FULLHOUSE6 ="Full House";
+        String FULLHOUSE7 ="Full House";
+        String FULLHOUSE8 ="Full House";
+        String FULLHOUSE9 ="Full House";
+        String FULLHOUSE10 ="Full House";
+        String FULLHOUSE11 ="Full House";
+        String FULLHOUSE12 ="Full House";
+        String FULLHOUSE13 ="Full House";
+        String FULLHOUSE14 ="Full House";
+        String FULLHOUSE15 ="Full House";
+        String FULLHOUSE16 ="Full House";
+        String FULLHOUSE17 ="Full House";
+        String FULLHOUSE18 ="Full House";
+        String FULLHOUSE19 ="Full House";
+        String FULLHOUSE20 ="Full House";
+        String FULLHOUSE21 ="Full House";
+        String FULLHOUSE22 ="Full House";
+        String FULLHOUSE23 ="Full House";
+        String FULLHOUSE24 ="Full House";
+        String FULLHOUSE25 ="Full House";
+        String FULLHOUSE26 ="Full House";
+        String FULLHOUSE27 ="Full House";
+        String FULLHOUSE28 ="Full House";
+        String FULLHOUSE29 ="Full House";
+        String FULLHOUSE30 ="Full House";
+        String SMALLSTRIGHT1 ="Small Straight: 1,2,3,4";
+        String SMALLSTRAIGHT2 ="Small Straight: 2,3,4,5";
+        String SMALLSTRAIGHT3 ="Small Straight: 3,4,5,6";
+        String LARGESTRAIGHT1 ="Large Straight: 1,2,3,4,5";
+        String LARGESTRAIGHT2 ="Large Straight: 2,3,4,5,6";
+        String YATZEE1 ="Yahtzee!";
+        String YATZEE2 ="Yahtzee!";
+        String YATZEE3 ="Yahtzee!";
+        String YATZEE4 ="Yahtzee!";
+        String YATZEE5 ="Yahtzee!";
+        String YATZEE6 ="Yahtzee!";
+        String CHANCE ="Chance";
 
         mStringMap.put(Combonations.ONEACE, ONEACE);
         mStringMap.put(Combonations.TWOACES, TWOACES);
@@ -550,12 +550,37 @@ public class Combonation {
             ArrayList<Integer> betterList = new ArrayList<Integer>();
             for (Integer integer : value) {
                 betterList.add(integer);
-                if (list.contains(betterList)){
-                    results.add(key);
-                }
+            }
+            if (isSubset(betterList,list)){
+                results.add(key);
             }
         }
         return results;
+    }
+
+    public void arrayToString(ArrayList<Combonations> combos) {
+        for (Combonations combo: combos){
+            String words= mStringMap.get(combo);
+            System.out.println(words);
+        }
+        return;
+    }
+
+    public boolean isSubset(ArrayList<Integer> a1, ArrayList<Integer> a2) {
+        Integer a1Size= a1.size();
+// TODO: FIX THIS!!!
+        for (Integer integer2:a2){
+            for (Integer integer1: a1){
+                if (integer1==integer2){
+                    a1.remove(integer1);
+                    if (a1Size==0){
+                        return true;
+                    }
+                    break;
+                }
+            }
+        }
+return false;
     }
 
 
