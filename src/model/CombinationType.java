@@ -3,7 +3,7 @@ package model;
 /**
  * Created by madmann on 8/19/16.
  */
-public enum Combonations {
+public enum CombinationType {
 //    TODO: FIGURE OUT VALUES FOR CHANCE/YATZEE
 //    TODO: ADD COMBONATIONS REQUIRED
 
@@ -92,10 +92,5 @@ public enum Combonations {
     YATZEE6,
     CHANCE;
 
-
-    @Override
-    public String toString() {
-        return "Combonations{}";
-    }
 }
 
