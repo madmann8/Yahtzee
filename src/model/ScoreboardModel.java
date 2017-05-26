@@ -9,27 +9,44 @@ public class Scoreboard {
 //    Upper Section
     private int mTurnsRemaining;
     private int mAces;
+    private boolean canSetAces = true;
     private int mTwos;
+    private boolean canSetTwo = true;
     private int mThrees;
+    private boolean canSetThrees = true;
     private int mFours;
+    private boolean canSetFours = true;
     private int mFives;
+    private boolean canSetFives = true;
     private int mSixes;
+    private boolean canSetSixes = true;
 //    Lower Section
     private int mThreeOfAKind;
+    private boolean canSetThreeOfAKind = true;
     private int mFourOfAKind;
+    private boolean canSetFourOfAKind = true;
     private int mFullHouse;
+    private boolean canSetFullHouse = true;
     private int smallStraight;
+    private boolean canSetSmallStraight = true;
     private int mLargeStright;
+    private boolean canSetLargeStaight = true;
     private int mYahtzee;
+    private boolean canSetYahtzee = true;
     private int mChance;
+    private boolean canSetChance = true;
     private int mTotalScore;
+
+
 
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
+
         this.name = name;
+
     }
 
     public int getTurnsRemaining() {
@@ -45,7 +62,9 @@ public class Scoreboard {
     }
 
     public void setAces(int aces) {
-        this.mAces = aces;
+        if (canSetAces) {
+        this.mAces = aces;}
+        canSetAces = false;
     }
 
     public int getTwos() {
@@ -53,7 +72,9 @@ public class Scoreboard {
     }
 
     public void setTwos(int twos) {
-        this.mTwos = twos;
+        if (canSetTwo) {
+        this.mTwos = twos;}
+        canSetTwo = false;
     }
 
     public int getThrees() {
@@ -61,7 +82,9 @@ public class Scoreboard {
     }
 
     public void setThrees(int threes) {
-        this.mThrees = threes;
+        if (canSetThrees) {
+        this.mThrees = threes;}
+        canSetThrees = false;
     }
 
     public int getFours() {
@@ -69,7 +92,9 @@ public class Scoreboard {
     }
 
     public void setFours(int fours) {
-        this.mFours = fours;
+        if (canSetFours) {
+        this.mFours = fours;}
+        canSetFours = false;
     }
 
     public int getFives() {
@@ -77,7 +102,9 @@ public class Scoreboard {
     }
 
     public void setFives(int fives) {
-        this.mFives = fives;
+        if (canSetFives) {
+        this.mFives = fives;}
+        canSetFives = false;
     }
 
     public int getSixes() {
@@ -85,7 +112,9 @@ public class Scoreboard {
     }
 
     public void setSixes(int sixes) {
-        this.mSixes = sixes;
+        if (canSetSixes) {
+        this.mSixes = sixes;}
+        canSetSixes = false;
     }
 // TODO: FIX getBonus
     public int getBonus() {
@@ -103,7 +132,9 @@ public class Scoreboard {
     }
 
     public void setThreeOfAKind(int threeOfAKind) {
-        this.mThreeOfAKind = threeOfAKind;
+        if (canSetThreeOfAKind) {
+        this.mThreeOfAKind = threeOfAKind;}
+        canSetThreeOfAKind = false;
     }
 
     public int getFourOfAKind() {
@@ -111,7 +142,9 @@ public class Scoreboard {
     }
 
     public void setFourOfAKind(int fourOfAKind) {
-        this.mFourOfAKind = fourOfAKind;
+        if (canSetFourOfAKind) {
+        this.mFourOfAKind = fourOfAKind;}
+        canSetFourOfAKind = false;
     }
 
     public int getFullHouse() {
@@ -119,7 +152,9 @@ public class Scoreboard {
     }
 
     public void setFullHouse(int fullHouse) {
-        this.mFullHouse = fullHouse;
+        if (canSetFullHouse) {
+        this.mFullHouse = fullHouse;}
+        canSetFullHouse = false;
     }
 
     public int getSmallStraight() {
@@ -127,7 +162,9 @@ public class Scoreboard {
     }
 
     public void setSmallStraight(int smallStraight) {
-        this.smallStraight = smallStraight;
+        if (canSetSmallStraight) {
+        this.smallStraight = smallStraight;}
+        canSetSmallStraight = false;
     }
 
     public int getLargeStright() {
@@ -135,7 +172,9 @@ public class Scoreboard {
     }
 
     public void setLargeStright(int largeStright) {
-        this.mLargeStright = largeStright;
+        if (canSetLargeStaight) {
+        this.mLargeStright = largeStright;}
+        canSetLargeStaight = false;
     }
 
     public int getYahtzee() {
@@ -147,13 +186,14 @@ public class Scoreboard {
             result=50;
         }
         else {
-            return (50+(100* mYahtzee));
+            return (50 + (100 * mYahtzee));
         }
         return mYahtzee;
     }
 
     public void setYahtzee(int yahtzee) {
         this.mYahtzee = yahtzee;
+        canSetYahtzee = false;
     }
 
     public int getChance() {
@@ -161,13 +201,16 @@ public class Scoreboard {
     }
 
     public void setChance(int chance) {
-        this.mChance = chance;
+        if (canSetChance) {
+        this.mChance = chance;}
+        canSetChance = false;
     }
 
     public int getTotalScore() {
         int result;
         result= mAces + mTwos + mThrees + mFours + mFives + mSixes +getBonus()+ mThreeOfAKind + mFourOfAKind +
                 mFullHouse +smallStraight+ mLargeStright +getYahtzee();
+
         return mTotalScore;
     }
 
