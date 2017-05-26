@@ -541,9 +541,10 @@ public class Combination {
 
     }
 
-    ArrayList<CombinationType> compareCombo(ArrayList<Integer> list) {
+    public static ArrayList<CombinationType> compareCombo(ArrayList<Integer> list) {
+        Combination combination = new Combination();
         ArrayList<CombinationType> results = new ArrayList<>();
-        for (Map.Entry<CombinationType, Integer[]> combo : mDiceCombosMap.entrySet()) {
+        for (Map.Entry<CombinationType, Integer[]> combo : combination.mDiceCombosMap.entrySet()) {
             CombinationType key = combo.getKey();
             Integer[] value = combo.getValue();
             ArrayList<Integer> betterList = new ArrayList<Integer>();
@@ -561,15 +562,16 @@ public class Combination {
         return mStringMap.get(combinationType);
     }
 
-    public void arrayToString(ArrayList<CombinationType> combinationTypes) {
+    public static void arrayToString(ArrayList<CombinationType> combinationTypes) {
+        Combination combination = new Combination();
         for (CombinationType combinationType : combinationTypes){
-            String words= mStringMap.get(combinationType);
+            String words= combination.mStringMap.get(combinationType);
             System.out.println(words);
         }
         return;
     }
 
-    private boolean isSubset(ArrayList<Integer> a1, ArrayList<Integer> a2) {
+    private static boolean isSubset(ArrayList<Integer> a1, ArrayList<Integer> a2) {
         ArrayList<Integer> copy1 = new ArrayList<>();
         ArrayList<Integer> copy2 = new ArrayList<>();
         for (Integer num: a1){
