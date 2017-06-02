@@ -21,7 +21,14 @@ public class Scoreboard extends JPanel {
     private int width = 500;
     private int height = 500;
 
-    public static Scoreboard singleton = new Scoreboard();
+    private int index;
+
+    private static ArrayList<Scoreboard> scoreboards = new ArrayList<>(100);
+
+    public static Scoreboard getScoreBoard(int index){
+        return scoreboards.get(index);
+    }
+
     private ScoreboardModel scoreboardModel = ScoreboardModel.singleton;
 
 //    private JLabel acesLabel, twosLabel, threesLabel, foursLabel, fivesLabel, sixesLabel, threeOfAKindsLabel, fourOfAKindLabel, fullHouseLabel, smallStraightLabel, largeStraightLabel, yahtzeeLabel, chanceLabel;
@@ -45,9 +52,10 @@ public class Scoreboard extends JPanel {
     private ArrayList<CellPanel> panels = new ArrayList<>();
 
 
-    public Scoreboard() {
+    public Scoreboard(int index) {
+        this.index = index;
+        scoreboards.add(this);
         setupViews();
-
         panels.add(acesPanel);
         panels.add(threeOfAKindPanel);
         panels.add(twosPanel);

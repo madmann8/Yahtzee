@@ -20,18 +20,27 @@ public class DiceBarGUI extends JPanel{
     private int width = 300;
     private int height = 75;
 
+    private int index = 0;
+
     ArrayList<Dice> dice = new ArrayList<>();
 
     public static DiceBarGUI singelton = new DiceBarGUI();
 
     public ArrayList<Integer> nums = new ArrayList<>();
 
+//    private static ArrayList<DiceBarGUI> diceBarGUIs  = new ArrayList<>(100);
+//
+//    public static DiceBarGUI getDiceBar(int index){
+//        return diceBarGUIs.get(index);
+//    }
 
     public JToggleButton[] buttons = new JToggleButton[5];
     private JLabel label;
     public JButton reloadButton = new JButton("Reload");
 
     public DiceBarGUI() {
+//        this.index = index;
+//        diceBarGUIs.add(this);
         label = new JLabel("Possibilities");
         for (int i = 1;i<6;i++){
 //            String path = "/Users/lukemann/YahtzeeGame/src/gui/dice-" + String.valueOf(i) + ".png";
@@ -50,6 +59,9 @@ public class DiceBarGUI extends JPanel{
             dice.add(die);
         }
         reloadButton.addActionListener(new reloadButtonList());
+
+        GridLayout layout = new GridLayout(0, 1, 0, 2);
+
     }
 
    public void reloadDice() {
@@ -74,7 +86,7 @@ public class DiceBarGUI extends JPanel{
        System.out.println();
        System.out.println();
        ArrayList<CombinationType> combos = Combination.compareCombo(nums);
-       Scoreboard.singleton.update(combos);
+       Scoreboard.getScoreBoard(index).update(combos);
    }
 
 
