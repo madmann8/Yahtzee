@@ -1,5 +1,7 @@
 package gui;
 
+import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
 
 /**
@@ -7,8 +9,18 @@ import java.io.IOException;
 ` */
 public class Main {
     public static void main(String[] args) throws IOException {
-        DiceBarGUI gui;
-        gui = new DiceBarGUI();
-        gui.display();
+        JPanel main = new JPanel();
+        DiceBarGUI diceBar = new DiceBarGUI();
+        JFrame frame = new JFrame();
+        frame.setPreferredSize(new Dimension(600,600));
+        Scoreboard.singleton.setupViews();
+//        scoreboard.setBackground(Color.black);
+//        diceBar.setBackground(Color.BLUE);
+        frame.getContentPane().add(Scoreboard.singleton);
+        frame.getContentPane().add(diceBar);
+        GridLayout layout = new GridLayout(0, 1, 0, 2);
+        frame.setLayout(layout);
+        frame.setVisible(true);
+        frame.pack();
     }
 }

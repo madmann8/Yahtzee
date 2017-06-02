@@ -558,8 +558,10 @@ public class Combination {
         return results;
     }
 
-    public String getValue(CombinationType combinationType) {
-        return mStringMap.get(combinationType);
+    public static Integer getValue(CombinationType combinationType) {
+        Combination combination = new Combination();
+        combination.toMapCombinationValues();
+        return combination.mDiceComboValues.get(combinationType);
     }
 
     public static void arrayToString(ArrayList<CombinationType> combinationTypes) {

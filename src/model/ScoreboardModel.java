@@ -1,10 +1,16 @@
 package model;
 
+import java.util.ArrayList;
+
 /**
  * Created by madmann on 8/18/16.
  */
-public class Scoreboard {
+public class ScoreboardModel {
     public String name;
+
+//    ArrayList<ScoreboardModel> scoreboardModels = new ArrayList<>();
+
+    public static ScoreboardModel singleton = new ScoreboardModel();
 
 //    Upper Section
     private int mTurnsRemaining;
