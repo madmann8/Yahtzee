@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Turn {
-    Scoreboard mScoreCard;
+    ScoreboardModel mScoreCard;
 
-    public Turn(Scoreboard scorecard) {
+    public Turn(ScoreboardModel scorecard) {
         mScoreCard = scorecard;
     }
 

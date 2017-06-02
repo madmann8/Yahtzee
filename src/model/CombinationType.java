@@ -92,5 +92,6 @@ public enum CombinationType {
     YATZEE6,
     CHANCE;
 
+
 }
 

@@ -1,5 +1,7 @@
 package model;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Random;
 
 /**
@@ -9,15 +11,28 @@ public class Dice {
 
     public boolean held = false;
     public int value;
+    public Listener listener = new Listener();
 
     public Dice() {
-        this.value = rollDie();
+       rollDie();
     }
 
-    private Integer rollDie() {
+    public void rollDie() {
         Random rand = new Random();
 
-        return rand.nextInt(6) + 1;
-//        return 1;
+        value=rand.nextInt(6) + 1;
+    }
+
+
+    private class Listener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (held){
+                held = false;
+            }
+            else {
+                held = true;
+            }
+        }
     }
 }
