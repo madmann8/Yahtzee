@@ -1,2 +1,2 @@
-# YahtzeeGame
-Java Game
+# Yahtzee Game
+

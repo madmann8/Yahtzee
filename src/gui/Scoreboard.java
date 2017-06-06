@@ -1,38 +1,21 @@
 package gui;
 
-import javafx.scene.control.Cell;
-import model.Combination;
-import model.CombinationType;
-import model.Dice;
-import model.ScoreboardModel;
+import model.*;
 
 import javax.swing.*;
-import java.applet.Applet;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
- * Created by lukemann on 5/24/17.
+ * Created by Luke Mann on 5/24/17.
  */
-public class Scoreboard extends JPanel {
-    private int width = 500;
-    private int height = 500;
 
-    private int index;
 
-    private static ArrayList<Scoreboard> scoreboards = new ArrayList<>(100);
+class Scoreboard extends JPanel {
 
-    public static Scoreboard getScoreBoard(int index){
-        return scoreboards.get(index);
-    }
-
-    private ScoreboardModel scoreboardModel = ScoreboardModel.singleton;
-
-//    private JLabel acesLabel, twosLabel, threesLabel, foursLabel, fivesLabel, sixesLabel, threeOfAKindsLabel, fourOfAKindLabel, fullHouseLabel, smallStraightLabel, largeStraightLabel, yahtzeeLabel, chanceLabel;
-//    private JButton acesButton, twosButton, threesButton, foursButton, fivesButton, sixesButton, threeOfAKindsButton, fourOfAKindButton, fullHouseButton, smallStraightButton, largeStraightButton, yahtzeeButton, chanceButton;
 
     private AcesPanel acesPanel = new AcesPanel();
     private ThreeOfAKindPanel threeOfAKindPanel = new ThreeOfAKindPanel();
@@ -48,13 +31,13 @@ public class Scoreboard extends JPanel {
     private YahtzeePanel yahtzeePanel = new YahtzeePanel();
     private ChancePanel chancePanel = new ChancePanel();
     private ScorePanel scorePanel = new ScorePanel();
-    private Integer turnsRemaining = 3;
+    private TurnsPanel turnPanel = new TurnsPanel();
+    private SkipTurnPanel skipTurnPanel = new SkipTurnPanel();
+    Integer rollsRemaining = 3;
     private ArrayList<CellPanel> panels = new ArrayList<>();
 
 
-    public Scoreboard(int index) {
-        this.index = index;
-        scoreboards.add(this);
+    Scoreboard() {
         setupViews();
         panels.add(acesPanel);
         panels.add(threeOfAKindPanel);
@@ -71,8 +54,8 @@ public class Scoreboard extends JPanel {
         panels.add(chancePanel);
     }
 
-    public void setupViews() {
-        GridLayout layout = new GridLayout(7, 2);
+    private void setupViews() {
+        GridLayout layout = new GridLayout(8, 2);
         setLayout(layout);
         add(acesPanel);
         add(threeOfAKindPanel);
@@ -88,18 +71,18 @@ public class Scoreboard extends JPanel {
         add(yahtzeePanel);
         add(chancePanel);
         add(scorePanel);
-
-
+        add(skipTurnPanel);
+        add(turnPanel);
     }
 
+
     private class CellPanel extends JPanel {
-        Scoreboard scoreboard;
         JLabel label = new JLabel();
         JButton button = new JButton();
         ArrayList<CombinationType> queuedCombos = new ArrayList<>();
         Boolean canSet = true;
 
-        public CellPanel() {
+        CellPanel() {
             button.setEnabled(false);
             add(label);
             add(button);
@@ -116,16 +99,17 @@ public class Scoreboard extends JPanel {
     }
 
     private Integer lValue(CellPanel panel) {
-        if (panel.button.getText() != "Add") {
+        if (!Objects.equals(panel.button.getText(), "Add")) {
             return Integer.valueOf(panel.button.getText());
         }
         return 0;
     }
 
-    private void updateTurnsRemaining() {
-        if (turnsRemaining<=0){
+    private void updateRollsRemaining() {
+        if (rollsRemaining <=0){
             clearPanels();
             scorePanel.countLabel.setText("0");
+
             int i =0;
             for (Dice die : DiceBarGUI.singelton.dice){
                 die.held = true;
@@ -138,29 +122,69 @@ public class Scoreboard extends JPanel {
             }
             return;
         }
-        scorePanel.countLabel.setText(String.valueOf(turnsRemaining));
+        scorePanel.countLabel.setText(String.valueOf(rollsRemaining));
+
     }
 
 
     private class ScorePanel extends JPanel {
-        Integer finalScore = 0;
 
-        public void update() {
+        void update() {
             Integer totalScore = 0;
             for (CellPanel panel : panels) {
                 totalScore += lValue(panel);
             }
             scoreLabel.setText(String.valueOf(totalScore));
+            countLabel.setText("3");
+            turnPanel.update();
+            rollsRemaining = 3;
+            updateRollsRemaining();
+            DiceBarGUI.singelton.reloadButton.setEnabled(true);
+            int i =0;
+            for (Dice die : DiceBarGUI.singelton.dice){
+                die.held = false;
+                DiceBarGUI.singelton.buttons[i].setEnabled(true);
+                i++;
+            }
+            DiceBarGUI.singelton.reloadDice();
+
 
         }
 
         private JLabel scoreLabel = new JLabel("0");
         private JLabel countLabel = new JLabel("3");
 
-        public ScorePanel() {
+        ScorePanel() {
             add(new JLabel("Total Score:"));
             add(scoreLabel);
             add(new JLabel("Rolls Remaining"));
+            add(countLabel);
+        }
+    }
+    private class TurnsPanel extends JPanel {
+
+        void update() {
+            Integer currentScore = Integer.valueOf(countLabel.getText());
+            currentScore -= 1;
+            countLabel.setText(String.valueOf(currentScore));
+            if (currentScore <= 0) {
+                for (CellPanel panel : panels) {
+                    panel.canSet = false;
+                    panel.setEnabled(false);
+                }
+                skipTurnPanel.canSet = false;
+                skipTurnPanel.setEnabled(false);
+
+            }
+
+            }
+
+
+
+        private JLabel countLabel = new JLabel("13");
+
+        TurnsPanel() {
+            add(new JLabel("Turns Remaining:"));
             add(countLabel);
         }
     }
@@ -185,7 +209,7 @@ public class Scoreboard extends JPanel {
 
     private class AcesPanel extends CellPanel {
 
-        public AcesPanel() {
+        AcesPanel() {
             super();
             label.setText("Aces");
             button.addActionListener(new Listener());
@@ -195,7 +219,6 @@ public class Scoreboard extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Integer value = bestValue(queuedCombos);
-                scoreboardModel.setAces(value);
                 button.setText(String.valueOf(value));
                 clearPanels();
                 canSet = false;
@@ -208,7 +231,7 @@ public class Scoreboard extends JPanel {
     }
 
     private class TwosPanel extends CellPanel {
-        public TwosPanel() {
+        TwosPanel() {
             super();
             label.setText("Twos");
             button.addActionListener(new Listener());
@@ -218,7 +241,6 @@ public class Scoreboard extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Integer value = bestValue(queuedCombos);
-                scoreboardModel.setTwos(value);
                 button.setText(String.valueOf(value));
                 clearPanels();
                 canSet = false;
@@ -228,7 +250,7 @@ public class Scoreboard extends JPanel {
     }
 
     private class ThreesPanel extends CellPanel {
-        public ThreesPanel() {
+        ThreesPanel() {
             super();
             label.setText("Threes");
             button.addActionListener(new Listener());
@@ -238,7 +260,6 @@ public class Scoreboard extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Integer value = bestValue(queuedCombos);
-                scoreboardModel.setThrees(value);
                 button.setText(String.valueOf(value));
                 clearPanels();
                 canSet = false;
@@ -248,7 +269,7 @@ public class Scoreboard extends JPanel {
     }
 
     private class FoursPanel extends CellPanel {
-        public FoursPanel() {
+        FoursPanel() {
             super();
             label.setText("Fours");
             button.addActionListener(new Listener());
@@ -258,7 +279,6 @@ public class Scoreboard extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Integer value = bestValue(queuedCombos);
-                scoreboardModel.setFours(value);
                 button.setText(String.valueOf(value));
                 clearPanels();
                 canSet = false;
@@ -268,7 +288,7 @@ public class Scoreboard extends JPanel {
     }
 
     private class FivesPanel extends CellPanel {
-        public FivesPanel() {
+        FivesPanel() {
             super();
             label.setText("Fives");
             button.addActionListener(new Listener());
@@ -278,7 +298,6 @@ public class Scoreboard extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Integer value = bestValue(queuedCombos);
-                scoreboardModel.setFives(value);
                 button.setText(String.valueOf(value));
                 clearPanels();
                 canSet = false;
@@ -288,7 +307,7 @@ public class Scoreboard extends JPanel {
     }
 
     private class SixesPanel extends CellPanel {
-        public SixesPanel() {
+        SixesPanel() {
             super();
             label.setText("Sixes");
             button.addActionListener(new Listener());
@@ -298,7 +317,6 @@ public class Scoreboard extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Integer value = bestValue(queuedCombos);
-                scoreboardModel.setSixes(value);
                 button.setText(String.valueOf(value));
                 clearPanels();
                 canSet = false;
@@ -308,7 +326,7 @@ public class Scoreboard extends JPanel {
     }
 
     private class ThreeOfAKindPanel extends CellPanel {
-        public ThreeOfAKindPanel() {
+        ThreeOfAKindPanel() {
             super();
             label.setText("Three of A Kind");
             button.addActionListener(new Listener());
@@ -330,7 +348,7 @@ public class Scoreboard extends JPanel {
     }
 
     private class FourOfAKindPanel extends CellPanel {
-        public FourOfAKindPanel() {
+        FourOfAKindPanel() {
             super();
             label.setText("Four of A Kind");
             button.addActionListener(new Listener());
@@ -352,7 +370,7 @@ public class Scoreboard extends JPanel {
     }
 
     private class FullHousePanel extends CellPanel {
-        public FullHousePanel() {
+        FullHousePanel() {
             super();
             label.setText("Full House");
             button.addActionListener(new Listener());
@@ -362,7 +380,6 @@ public class Scoreboard extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Integer value = bestValue(queuedCombos);
-                scoreboardModel.setFullHouse(value);
                 button.setText(String.valueOf(value));
                 clearPanels();
                 canSet = false;
@@ -372,7 +389,7 @@ public class Scoreboard extends JPanel {
     }
 
     private class SmallStraightPanel extends CellPanel {
-        public SmallStraightPanel() {
+        SmallStraightPanel() {
             super();
             label.setText("Small Straight");
             button.addActionListener(new Listener());
@@ -382,7 +399,6 @@ public class Scoreboard extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Integer value = bestValue(queuedCombos);
-                scoreboardModel.setSmallStraight(value);
                 button.setText(String.valueOf(value));
                 clearPanels();
                 canSet = false;
@@ -392,7 +408,7 @@ public class Scoreboard extends JPanel {
     }
 
     private class LargeStraightPanel extends CellPanel {
-        public LargeStraightPanel() {
+        LargeStraightPanel() {
             super();
             label.setText("Large Straight");
             button.addActionListener(new Listener());
@@ -402,7 +418,6 @@ public class Scoreboard extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Integer value = bestValue(queuedCombos);
-                scoreboardModel.setLargeStright(value);
                 button.setText(String.valueOf(value));
                 clearPanels();
                 canSet = false;
@@ -412,7 +427,7 @@ public class Scoreboard extends JPanel {
     }
 
     private class YahtzeePanel extends CellPanel {
-        public YahtzeePanel() {
+        YahtzeePanel() {
             super();
             label.setText("Yahtzee");
             button.addActionListener(new Listener());
@@ -422,7 +437,6 @@ public class Scoreboard extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Integer value = bestValue(queuedCombos);
-                scoreboardModel.setYahtzee(value);
                 button.setText(String.valueOf(value));
                 clearPanels();
                 canSet = false;
@@ -431,8 +445,25 @@ public class Scoreboard extends JPanel {
         }
     }
 
+    private class SkipTurnPanel extends CellPanel {
+        SkipTurnPanel() {
+            super();
+            label.setText("Skip Turn");
+            button.setText("Skip");
+            setEnabled(true);
+            button.addActionListener(new Listener());
+        }
+
+        private class Listener implements ActionListener {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                scorePanel.update();
+            }
+        }
+    }
+
     private class ChancePanel extends CellPanel {
-        public ChancePanel() {
+        ChancePanel() {
             super();
             label.setText("Chance");
             button.addActionListener(new Listener());
@@ -441,9 +472,12 @@ public class Scoreboard extends JPanel {
         private class Listener implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Integer value = bestValue(queuedCombos);
-                scoreboardModel.setChance(value);
+                Integer value = 0;
+                for (Integer num : DiceBarGUI.singelton.nums) {
+                    value += num;
+                }
                 button.setText(String.valueOf(value));
+                clearPanels();
                 canSet = false;
                 scorePanel.update();
             }
@@ -458,9 +492,9 @@ public class Scoreboard extends JPanel {
     }
 
 
-    public void update(ArrayList<CombinationType> list) {
-        turnsRemaining -=1;
-        updateTurnsRemaining();
+    void update(ArrayList<CombinationType> list) {
+        rollsRemaining -=1;
+        updateRollsRemaining();
         clearPanels();
         for (CombinationType combo : list) {
 
@@ -509,7 +543,7 @@ public class Scoreboard extends JPanel {
                 yahtzeePanel.setEnabled(true);
                 yahtzeePanel.queuedCombos.add(combo);
             }
-            if (combo == (CombinationType.THREEOFAONES) || combo == (CombinationType.THREEOFATWOS) || combo == (CombinationType.THREEOFATHREES) || combo == (CombinationType.THREEOFAFOURS) || combo == (CombinationType.THREEOFAFIVES) || combo == (CombinationType.THREEOFAFOURS)) {
+            if (combo == (CombinationType.THREEOFAONES) || combo == (CombinationType.THREEOFATWOS) || combo == (CombinationType.THREEOFATHREES) || combo == (CombinationType.THREEOFAFOURS) || combo == (CombinationType.THREEOFAFIVES)) {
                 threeOfAKindPanel.setEnabled(true);
                 threeOfAKindPanel.queuedCombos.add(combo);
             }

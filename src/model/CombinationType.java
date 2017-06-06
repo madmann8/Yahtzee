@@ -1,12 +1,9 @@
 package model;
 
 /**
- * Created by madmann on 8/19/16.
+ * Created by Luke Mann on 5/19/17.
  */
 public enum CombinationType {
-//    TODO: FIGURE OUT VALUES FOR CHANCE/YATZEE
-//    TODO: ADD COMBONATIONS REQUIRED
-
     ONEACE,
     TWOACES,
     THREEACES,
@@ -90,8 +87,6 @@ public enum CombinationType {
     YATZEE4,
     YATZEE5,
     YATZEE6,
-    CHANCE;
-
-
+    CHANCE
 }
 

@@ -8,45 +8,25 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.util.ArrayList;
-
-
 
 /**
  * Created by lukemann on 5/24/17.
  */
-public class DiceBarGUI extends JPanel{
-    private int width = 300;
-    private int height = 75;
 
-    private int index = 0;
-
+class DiceBarGUI extends JPanel{
     ArrayList<Dice> dice = new ArrayList<>();
 
-    public static DiceBarGUI singelton = new DiceBarGUI();
+    static DiceBarGUI singelton = new DiceBarGUI();
 
-    public ArrayList<Integer> nums = new ArrayList<>();
+    ArrayList<Integer> nums = new ArrayList<>();
 
-//    private static ArrayList<DiceBarGUI> diceBarGUIs  = new ArrayList<>(100);
-//
-//    public static DiceBarGUI getDiceBar(int index){
-//        return diceBarGUIs.get(index);
-//    }
+    JToggleButton[] buttons = new JToggleButton[5];
+    private JLabel label = new JLabel("Possibilities");
+    JButton reloadButton = new JButton("Reload");
 
-    public JToggleButton[] buttons = new JToggleButton[5];
-    private JLabel label;
-    public JButton reloadButton = new JButton("Reload");
-
-    public DiceBarGUI() {
-//        this.index = index;
-//        diceBarGUIs.add(this);
-        label = new JLabel("Possibilities");
+    private DiceBarGUI() {
         for (int i = 1;i<6;i++){
-//            String path = "/Users/lukemann/YahtzeeGame/src/gui/dice-" + String.valueOf(i) + ".png";
-//            Image image = ImageIO.read(new File(path));
-//            Image scaled = image.getScaledInstance(50,50,Image.SCALE_SMOOTH);
-//            ImageIcon icon = new ImageIcon(image);
             JToggleButton button = new JToggleButton(String.valueOf(i));
             add(button);
             button.setPreferredSize( new Dimension(50, 50));
@@ -60,11 +40,8 @@ public class DiceBarGUI extends JPanel{
         }
         reloadButton.addActionListener(new reloadButtonList());
 
-        GridLayout layout = new GridLayout(0, 1, 0, 2);
-
     }
-
-   public void reloadDice() {
+    void reloadDice() {
         nums = new ArrayList<>();
        int i = 0;
         for (JToggleButton button : buttons){
@@ -76,17 +53,9 @@ public class DiceBarGUI extends JPanel{
             nums.add(die.value);
             i++;
         }
-       System.out.println();
-       System.out.println();
-       System.out.println();
-       System.out.println();
-       System.out.println();
-       System.out.println();
-       System.out.println();
-       System.out.println();
-       System.out.println();
+
        ArrayList<CombinationType> combos = Combination.compareCombo(nums);
-       Scoreboard.getScoreBoard(index).update(combos);
+      TurnManager.singleton.getCurrentScoreBoard().update(combos);
    }
 
 
@@ -96,8 +65,4 @@ public class DiceBarGUI extends JPanel{
             reloadDice();
         }
     }
-
-
-
-
 }

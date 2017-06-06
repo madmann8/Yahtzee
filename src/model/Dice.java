@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.Random;
 
 /**
- * Created by lukemann on 5/17/17.
+ * Created by Luke Mann on 5/17/17.
  */
 public class Dice {
 
@@ -27,12 +27,7 @@ public class Dice {
     private class Listener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (held){
-                held = false;
-            }
-            else {
-                held = true;
-            }
+            held = !held;
         }
     }
 }

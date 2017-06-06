@@ -2,19 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="938bf6ed-f90c-4924-9409-507e3525dc68" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gui/MainView.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gui/PlayerControllerGUI.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gui/TurnManager.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/gui/dice-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/gui/dice-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/gui/dice-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/gui/dice-4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/gui/dice-5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/gui/dice-6.png" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gui/StartGameGUI.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/gui/MainView.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/gui/PlayerControllerGUI.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/DiceBar.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/Main.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/ScoreboardModel.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/Turn.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/DiceBarGUI.java" afterPath="$PROJECT_DIR$/src/gui/DiceBarGUI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/Main.java" afterPath="$PROJECT_DIR$/src/gui/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/Scoreboard.java" afterPath="$PROJECT_DIR$/src/gui/Scoreboard.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/TurnManager.java" afterPath="$PROJECT_DIR$/src/gui/TurnManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Combination.java" afterPath="$PROJECT_DIR$/src/model/Combination.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/CombinationType.java" afterPath="$PROJECT_DIR$/src/model/CombinationType.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Dice.java" afterPath="$PROJECT_DIR$/src/model/Dice.java" />
     </list>
     <ignored path="Yahtzee.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,11 +39,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="28" column="86" lean-forward="false" selection-start-line="28" selection-start-column="86" selection-end-line="28" selection-end-column="86" />
+            <state relative-caret-position="255">
+              <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -48,17 +51,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PlayerControllerGUI.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/PlayerControllerGUI.java">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state relative-caret-position="0">
+              <caret line="0" column="14" lean-forward="true" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StartGameGUI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/StartGameGUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-105">
+              <caret line="9" column="16" lean-forward="true" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1404#1405#0" expanded="true" />
-                <element signature="e#1461#1462#0" expanded="true" />
-                <element signature="e#1606#1607#0" expanded="true" />
-                <element signature="e#1659#1660#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -67,21 +76,32 @@
       <file leaf-file-name="TurnManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/TurnManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="17" lean-forward="false" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
+            <state relative-caret-position="180">
+              <caret line="12" column="3" lean-forward="false" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
               <folding>
-                <element signature="e#288#289#0" expanded="true" />
-                <element signature="e#312#313#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#1287#1288#0" expanded="true" />
+                <element signature="e#1356#1357#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainView.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/MainView.java">
+      <file leaf-file-name="CombinationType.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/CombinationType.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="23" lean-forward="false" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+            <state relative-caret-position="1335">
+              <caret line="89" column="10" lean-forward="false" selection-start-line="89" selection-start-column="10" selection-end-line="89" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Combination.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/Combination.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="585" column="46" lean-forward="false" selection-start-line="585" selection-start-column="46" selection-end-line="585" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -90,11 +110,10 @@
       <file leaf-file-name="Scoreboard.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/Scoreboard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2124">
-              <caret line="342" column="55" lean-forward="false" selection-start-line="342" selection-start-column="55" selection-end-line="342" selection-end-column="55" />
+            <state relative-caret-position="-7425">
+              <caret line="36" column="17" lean-forward="true" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
               <folding>
-                <element signature="e#651#652#0" expanded="true" />
-                <element signature="e#696#697#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -103,10 +122,25 @@
       <file leaf-file-name="DiceBarGUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/DiceBarGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="40" column="22" lean-forward="false" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
+            <state relative-caret-position="27">
+              <caret line="44" column="8" lean-forward="false" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Dice.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/model/Dice.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-18">
+              <caret line="8" column="3" lean-forward="false" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+              <folding>
+                <element signature="e#301#302#0" expanded="true" />
+                <element signature="e#325#326#0" expanded="true" />
+                <element signature="e#560#561#0" expanded="true" />
+                <element signature="e#596#597#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -125,17 +159,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>mDiceCombosMap</find>
-      <find>value</find>
-      <find>.remove</find>
-      <find>list</find>
-      <find>list.</find>
-      <find>a2.</find>
-      <find>copy.</find>
-      <find>a1</find>
-      <find>a2</find>
-      <find>counter</find>
-      <find>compareCombo</find>
       <find>getCoun</find>
       <find>chance</find>
       <find>ca</find>
@@ -150,6 +173,22 @@
       <find>Jbutton</find>
       <find>single</find>
       <find>getval</find>
+      <find>makef</find>
+      <find>update()</find>
+      <find>upda</find>
+      <find>rolls r</find>
+      <find>update</find>
+      <find>updateRollsRemaining</find>
+      <find>getCurrentScoreBoard</find>
+      <find>reloadButton</find>
+      <find>.small</find>
+      <find>dicebarg</find>
+      <find>chancepan</find>
+      <find>-=1</find>
+      <find>new s</find>
+      <find>-= 1</find>
+      <find>rollsRemaining</find>
+      <find>turns</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -167,25 +206,27 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/model/CombonationDetails.java" />
-        <option value="$PROJECT_DIR$/src/model/Turn.java" />
         <option value="$PROJECT_DIR$/src/model/Combonations.java" />
         <option value="$PROJECT_DIR$/src/model/Combo.java" />
         <option value="$PROJECT_DIR$/src/model/Combonation.java" />
-        <option value="$PROJECT_DIR$/src/model/DiceBar.java" />
         <option value="$PROJECT_DIR$/src/model/Main.java" />
         <option value="$PROJECT_DIR$/src/gui/main.java" />
         <option value="$PROJECT_DIR$/src/gui/Display.java" />
-        <option value="$PROJECT_DIR$/src/model/CombinationType.java" />
         <option value="$PROJECT_DIR$/src/model/Scoreboard.java" />
-        <option value="$PROJECT_DIR$/src/model/ScoreboardModel.java" />
-        <option value="$PROJECT_DIR$/src/model/Combination.java" />
-        <option value="$PROJECT_DIR$/src/model/Dice.java" />
-        <option value="$PROJECT_DIR$/src/gui/DiceBarGUI.java" />
-        <option value="$PROJECT_DIR$/src/gui/Scoreboard.java" />
+        <option value="$PROJECT_DIR$/src/gui/MainView.java" />
         <option value="$PROJECT_DIR$/src/gui/PlayerControllerGUI.java" />
         <option value="$PROJECT_DIR$/src/gui/TurnManager.java" />
-        <option value="$PROJECT_DIR$/src/gui/MainView.java" />
+        <option value="$PROJECT_DIR$/src/gui/DiceBarGUI.java" />
+        <option value="$PROJECT_DIR$/src/model/Dice.java" />
+        <option value="$PROJECT_DIR$/src/model/DiceBar.java" />
+        <option value="$PROJECT_DIR$/src/model/ScoreboardModel.java" />
+        <option value="$PROJECT_DIR$/src/model/Turn.java" />
+        <option value="$PROJECT_DIR$/src/gui/Scoreboard.java" />
+        <option value="$PROJECT_DIR$/src/model/CombinationType.java" />
+        <option value="$PROJECT_DIR$/src/model/Combination.java" />
+        <option value="$PROJECT_DIR$/src/gui/StartGameGUI.java" />
         <option value="$PROJECT_DIR$/src/gui/Main.java" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -214,8 +255,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -266,7 +306,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -638,7 +679,14 @@
       <option name="project" value="LOCAL" />
       <updated>1496413032674</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="In work">
+      <created>1496418179073</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1496418179073</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -672,7 +720,8 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20355412" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22294022" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3260274" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -687,7 +736,6 @@
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3260274" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -736,19 +784,12 @@
     <MESSAGE value="Deleted folder" />
     <MESSAGE value="Dice bar can print possible values based on relaoded information" />
     <MESSAGE value="Hi" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hi" />
+    <MESSAGE value="In work" />
+    <option name="LAST_COMMIT_MESSAGE" value="In work" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/gui/Scoreboard.java</url>
-          <line>521</line>
-          <properties />
-          <option name="timeStamp" value="96" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="97" />
+      <option name="time" value="105" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -757,46 +798,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/model/CombinationType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1425">
-          <caret line="95" column="13" lean-forward="false" selection-start-line="95" selection-start-column="13" selection-end-line="95" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/ScoreboardModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="14" lean-forward="false" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
-          <folding>
-            <element signature="docComment;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setName#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setAces#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setTwos#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setThrees#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setFours#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setFives#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setSixes#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#getBonus#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setThreeOfAKind#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setFourOfAKind#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setFullHouse#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setSmallStraight#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setLargeStright#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#getYahtzee#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setYahtzee#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setChance#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#getTotalScore#0;class#ScoreboardModel#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -804,7 +809,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="23" column="27" lean-forward="false" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -812,11 +816,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="docComment;class#Combination#0" expanded="false" />
-            <element signature="method#toMapString#0;class#Combination#0" expanded="false" />
-            <element signature="method#isSubset#0;class#Combination#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -824,7 +823,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1425">
           <caret line="95" column="18" lean-forward="false" selection-start-line="95" selection-start-column="18" selection-end-line="95" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -832,26 +830,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="14" lean-forward="false" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
-          <folding>
-            <element signature="docComment;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setName#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setAces#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setTwos#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setThrees#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setFours#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setFives#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setSixes#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#getBonus#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setThreeOfAKind#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setFourOfAKind#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setFullHouse#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setSmallStraight#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setLargeStright#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#getYahtzee#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setYahtzee#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setChance#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#getTotalScore#0;class#ScoreboardModel#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -859,7 +837,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -867,7 +844,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="25" column="24" lean-forward="false" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -875,11 +851,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="docComment;class#Combination#0" expanded="false" />
-            <element signature="method#toMapString#0;class#Combination#0" expanded="false" />
-            <element signature="method#isSubset#0;class#Combination#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -887,7 +858,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1200">
           <caret line="80" column="16" lean-forward="false" selection-start-line="80" selection-start-column="16" selection-end-line="80" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -895,26 +865,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="25" lean-forward="false" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
-          <folding>
-            <element signature="docComment;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setName#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setAces#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setTwos#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setThrees#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setFours#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setFives#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setSixes#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#getBonus#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setThreeOfAKind#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setFourOfAKind#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setFullHouse#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setSmallStraight#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setLargeStright#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#getYahtzee#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setYahtzee#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setChance#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#getTotalScore#0;class#ScoreboardModel#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -922,7 +872,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="8" column="45" lean-forward="false" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -930,7 +879,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -938,11 +886,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="8160">
           <caret line="544" column="0" lean-forward="false" selection-start-line="544" selection-start-column="0" selection-end-line="544" selection-end-column="0" />
-          <folding>
-            <element signature="docComment;class#Combination#0" expanded="false" />
-            <element signature="method#toMapString#0;class#Combination#0" expanded="false" />
-            <element signature="method#isSubset#0;class#Combination#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -950,7 +893,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1200">
           <caret line="80" column="16" lean-forward="false" selection-start-line="80" selection-start-column="16" selection-end-line="80" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -958,26 +900,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="docComment;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setName#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setAces#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setTwos#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setThrees#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setFours#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setFives#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setSixes#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#getBonus#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setThreeOfAKind#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setFourOfAKind#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setFullHouse#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setSmallStraight#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setLargeStright#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#getYahtzee#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setYahtzee#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setChance#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#getTotalScore#0;class#ScoreboardModel#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -985,7 +907,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -993,7 +914,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="18" column="19" lean-forward="false" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1001,11 +921,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="docComment;class#Combination#0" expanded="false" />
-            <element signature="method#toMapString#0;class#Combination#0" expanded="false" />
-            <element signature="method#isSubset#0;class#Combination#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1013,7 +928,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1200">
           <caret line="80" column="16" lean-forward="false" selection-start-line="80" selection-start-column="16" selection-end-line="80" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1021,26 +935,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="25" lean-forward="false" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
-          <folding>
-            <element signature="docComment;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setName#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setAces#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setTwos#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setThrees#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setFours#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setFives#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setSixes#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#getBonus#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setThreeOfAKind#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setFourOfAKind#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setFullHouse#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setSmallStraight#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setLargeStright#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#getYahtzee#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setYahtzee#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setChance#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#getTotalScore#0;class#ScoreboardModel#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1048,7 +942,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1056,7 +949,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="19" column="19" lean-forward="false" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1064,11 +956,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="633">
           <caret line="59" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-          <folding>
-            <element signature="docComment;class#Combination#0" expanded="false" />
-            <element signature="method#toMapString#0;class#Combination#0" expanded="false" />
-            <element signature="method#isSubset#0;class#Combination#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1078,13 +965,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="12075">
           <caret line="850" column="0" lean-forward="false" selection-start-line="850" selection-start-column="0" selection-end-line="850" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/DiceBar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1102,7 +982,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="5" lean-forward="false" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1139,81 +1018,64 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4905">
           <caret line="350" column="11" lean-forward="false" selection-start-line="350" selection-start-column="11" selection-end-line="350" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/MainView.java" />
+    <entry file="file://$PROJECT_DIR$/src/gui/PlayerControllerGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="15" column="16" lean-forward="true" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/CombinationType.java">
+    <entry file="file://$PROJECT_DIR$/src/model/DiceBar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1410">
-          <caret line="94" column="0" lean-forward="false" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+        <state relative-caret-position="105">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/ScoreboardModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-          <folding>
-            <element signature="docComment;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setName#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setAces#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setTwos#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setThrees#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setFours#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setFives#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setSixes#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#getBonus#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setThreeOfAKind#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setFourOfAKind#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setFullHouse#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setSmallStraight#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setLargeStright#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#getYahtzee#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setYahtzee#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#setChance#0;class#ScoreboardModel#0" expanded="false" />
-            <element signature="method#getTotalScore#0;class#ScoreboardModel#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Combination.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5820">
-          <caret line="561" column="0" lean-forward="false" selection-start-line="561" selection-start-column="0" selection-end-line="561" selection-end-column="0" />
-          <folding>
-            <element signature="docComment;class#Combination#0" expanded="false" />
-            <element signature="method#toMapString#0;class#Combination#0" expanded="false" />
-            <element signature="method#isSubset#0;class#Combination#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Dice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#300#301#0" expanded="false" />
-            <element signature="e#324#325#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="270">
+          <caret line="18" column="12" lean-forward="false" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Turn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="16" column="5" lean-forward="false" selection-start-line="12" selection-start-column="3" selection-end-line="16" selection-end-column="5" />
+        <state relative-caret-position="285">
+          <caret line="19" column="14" lean-forward="true" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="14" lean-forward="true" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/DiceBarGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="40" column="22" lean-forward="false" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
+        <state relative-caret-position="27">
+          <caret line="44" column="8" lean-forward="false" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1222,54 +1084,61 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/Scoreboard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2124">
-          <caret line="342" column="55" lean-forward="false" selection-start-line="342" selection-start-column="55" selection-end-line="342" selection-end-column="55" />
+        <state relative-caret-position="-7425">
+          <caret line="36" column="17" lean-forward="true" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
           <folding>
-            <element signature="e#651#652#0" expanded="true" />
-            <element signature="e#696#697#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/StartGameGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-105">
+          <caret line="9" column="16" lean-forward="true" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/TurnManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="17" lean-forward="false" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
-          <folding>
-            <element signature="e#288#289#0" expanded="true" />
-            <element signature="e#312#313#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/PlayerControllerGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state relative-caret-position="180">
+          <caret line="12" column="3" lean-forward="false" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1404#1405#0" expanded="true" />
-            <element signature="e#1461#1462#0" expanded="true" />
-            <element signature="e#1606#1607#0" expanded="true" />
-            <element signature="e#1659#1660#0" expanded="true" />
+            <element signature="e#1287#1288#0" expanded="true" />
+            <element signature="e#1356#1357#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/MainView.java">
+    <entry file="file://$PROJECT_DIR$/src/model/Combination.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="23" lean-forward="false" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+        <state relative-caret-position="72">
+          <caret line="585" column="46" lean-forward="false" selection-start-line="585" selection-start-column="46" selection-end-line="585" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/model/CombinationType.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="28" column="86" lean-forward="false" selection-start-line="28" selection-start-column="86" selection-end-line="28" selection-end-column="86" />
+        <state relative-caret-position="1335">
+          <caret line="89" column="10" lean-forward="false" selection-start-line="89" selection-start-column="10" selection-end-line="89" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Dice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-18">
+          <caret line="8" column="3" lean-forward="false" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#301#302#0" expanded="true" />
+            <element signature="e#325#326#0" expanded="true" />
+            <element signature="e#560#561#0" expanded="true" />
+            <element signature="e#596#597#0" expanded="true" />
           </folding>
         </state>
       </provider>

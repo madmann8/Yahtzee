@@ -4,7 +4,7 @@ package model;
 import java.util.*;
 
 /**
- * Created by lukemann on 5/19/17
+ * Created by Luke Mann on 5/19/17
  */
 
 
@@ -14,7 +14,7 @@ public class Combination {
     private HashMap<CombinationType, Integer> mDiceComboValues = new HashMap<>();
     private HashMap<CombinationType, String> mStringMap = new HashMap<>();
 
-    public Combination() {
+    Combination() {
         toMapDiceCombinations();
         toMapString();
         toMapCombinationValues();
@@ -104,7 +104,7 @@ public class Combination {
         Integer[] YATZEE2 = {2, 2, 2, 2, 2};
         Integer[] YATZEE4 = {4, 4, 4, 4, 4};
         Integer[] YATZEE5 = {5, 5, 5, 5, 5};
-        Integer[] CHANCE = {1, 2};
+        Integer[] CHANCE = {};
 
         mDiceCombosMap.put(CombinationType.ONEACE, ONEACE);
         mDiceCombosMap.put(CombinationType.TWOACES, TWOACES);
@@ -548,9 +548,7 @@ public class Combination {
             CombinationType key = combo.getKey();
             Integer[] value = combo.getValue();
             ArrayList<Integer> betterList = new ArrayList<Integer>();
-            for (Integer integer : value) {
-                betterList.add(integer);
-            }
+            Collections.addAll(betterList, value);
             if (isSubset(betterList,list)){
                 results.add(key);
             }
@@ -564,13 +562,12 @@ public class Combination {
         return combination.mDiceComboValues.get(combinationType);
     }
 
-    public static void arrayToString(ArrayList<CombinationType> combinationTypes) {
+    static void arrayToString(ArrayList<CombinationType> combinationTypes) {
         Combination combination = new Combination();
         for (CombinationType combinationType : combinationTypes){
             String words= combination.mStringMap.get(combinationType);
             System.out.println(words);
         }
-        return;
     }
 
     private static boolean isSubset(ArrayList<Integer> a1, ArrayList<Integer> a2) {
@@ -584,9 +581,9 @@ public class Combination {
         }
 
 
-        for(int e = 0;e<copy1.size();e+=1){
+        for(int e = 0;e<copy1.size();e++){
             Integer a1Int = copy1.get(e);
-            for (int i = 0; i<copy2.size();i+=1) {
+            for (int i = 0; i<copy2.size();i++) {
                 if (copy2.get(i).equals(a1Int)) {
                     if (i < copy2.size() && e< copy1.size()) {
                         copy1.remove(e);
