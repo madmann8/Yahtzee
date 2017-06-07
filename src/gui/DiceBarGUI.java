@@ -2,7 +2,7 @@ package gui;
 
 import model.Combination;
 import model.CombinationType;
-import model.Dice;
+import model.Die;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,15 +15,14 @@ import java.util.ArrayList;
  */
 
 class DiceBarGUI extends JPanel{
-    ArrayList<Dice> dice = new ArrayList<>();
+    ArrayList<Die> dice = new ArrayList<>();
 
-    static DiceBarGUI singelton = new DiceBarGUI();
+    static DiceBarGUI singleton = new DiceBarGUI();
 
     ArrayList<Integer> nums = new ArrayList<>();
 
     JToggleButton[] buttons = new JToggleButton[5];
-    private JLabel label = new JLabel("Possibilities");
-    JButton reloadButton = new JButton("Reload");
+    JButton reloadButton = new JButton("Roll");
 
     private DiceBarGUI() {
         for (int i = 1;i<6;i++){
@@ -33,7 +32,7 @@ class DiceBarGUI extends JPanel{
             add(reloadButton);
             reloadButton.setPreferredSize(new Dimension(50,20));
             buttons[i-1] = button;
-            Dice die = new Dice();
+            Die die = new Die();
             button.setText(String.valueOf(die.value));
             button.addActionListener(die.listener);
             dice.add(die);
@@ -42,13 +41,18 @@ class DiceBarGUI extends JPanel{
 
     }
     void reloadDice() {
+        realignDice();
         nums = new ArrayList<>();
        int i = 0;
         for (JToggleButton button : buttons){
-           Dice die = dice.get(i);
+           Die die = dice.get(i);
            if (!die.held) {
+//               button.setEnabled(true);
                die.rollDie();
            }
+//           else button.setEnabled(false);
+
+
             button.setText(String.valueOf(die.value));
             nums.add(die.value);
             i++;
@@ -65,4 +69,14 @@ class DiceBarGUI extends JPanel{
             reloadDice();
         }
     }
+
+    public void realignDice() {
+        int i = 0;
+        for (JToggleButton button : buttons){
+            Die die = dice.get(i);
+               button.setSelected(die.held);
+            i++;
+        }
+    }
+
 }

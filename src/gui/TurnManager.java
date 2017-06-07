@@ -1,6 +1,6 @@
 package gui;
 
-import model.Dice;
+import model.Die;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -13,13 +13,15 @@ import java.util.ArrayList;
  */
 class TurnManager {
 
+    private boolean hasPresentedWinMessage = false;
+
     static TurnManager singleton = new TurnManager();
 
-    private ArrayList<Scoreboard> scoreboards = new ArrayList<>();
+    private ArrayList<ScoreboardGUI> scoreboards = new ArrayList<>();
 
     private TurnManager() {
         tabbedPane.addChangeListener(new changeListener());
-        scoreboards.add(new Scoreboard());
+        scoreboards.add(new ScoreboardGUI());
     }
 
 
@@ -36,17 +38,15 @@ class TurnManager {
         frame.setLayout(layout);
         frame.getContentPane().add(tabbedPane);
         JPanel containerFrame = new JPanel();
-        containerFrame.add(DiceBarGUI.singelton);
+        containerFrame.add(DiceBarGUI.singleton);
         frame.getContentPane().add(containerFrame);
-
-
         frame.setVisible(true);
 
         frame.setPreferredSize(new Dimension(800, 700));
         frame.pack();
     }
 
-    Scoreboard getCurrentScoreBoard() {
+    ScoreboardGUI getCurrentScoreBoard() {
         return scoreboards.get(tabbedPane.getSelectedIndex());
     }
 
@@ -54,20 +54,24 @@ class TurnManager {
 
         @Override
         public void stateChanged(ChangeEvent e) {
+            DiceBarGUI diceBar = DiceBarGUI.singleton;
             if (scoreboards.get(tabbedPane.getSelectedIndex()).rollsRemaining > 0) {
-                DiceBarGUI.singelton.reloadButton.setEnabled(true);
+//                diceBar.reloadDice();
+                diceBar.reloadButton.setEnabled(true);
                 int i = 0;
-                for (Dice die : DiceBarGUI.singelton.dice) {
-                    die.held = true;
-                    DiceBarGUI.singelton.buttons[i].setEnabled(true);
+                for (Die die : diceBar.dice) {
+                    die.held = false;
+                    diceBar.realignDice();
+//                    DiceBarGUI.singleton.buttons[i].setEnabled(true);
                     i++;
                 }
             } else {
-                DiceBarGUI.singelton.reloadButton.setEnabled(false);
+                diceBar.reloadButton.setEnabled(false);
                 int i = 0;
-                for (Dice die : DiceBarGUI.singelton.dice) {
+                for (Die die : diceBar.dice) {
                     die.held = true;
-                    DiceBarGUI.singelton.buttons[i].setEnabled(false);
+                    diceBar.realignDice();
+//                    DiceBarGUI.singleton.buttons[i].setEnabled(false);
                     i++;
                 }
             }
@@ -75,8 +79,51 @@ class TurnManager {
     }
 
     private JPanel makeFrame() {
-        Scoreboard scoreboard = new Scoreboard();
+        ScoreboardGUI scoreboard = new ScoreboardGUI();
         scoreboards.add(scoreboard);
         return scoreboard;
     }
+
+    void checkWin() {
+        Boolean isDone = true;
+        for (ScoreboardGUI scoreboard : scoreboards)
+            if (scoreboard.getCurrentTurnCount()>0)
+                isDone = false;
+        if (isDone) {
+            String highestPlayer = "Player 0";
+            ArrayList<ScoreboardGUI> ties = new ArrayList<>();
+            int highestScore = 0;
+            for (ScoreboardGUI scoreboard : scoreboards) {
+                Integer value = scoreboard.getCurrentScore();
+                if (value > highestScore) {
+                    highestScore = value;
+                    highestPlayer = "Player" + (scoreboards.indexOf(scoreboard) + 1);
+                }
+                if (value == highestScore){
+                    ties.add(scoreboard);
+                }
+            }
+            if (!ties.isEmpty()){
+                ArrayList<Integer> indexes = new ArrayList<>();
+                for (ScoreboardGUI scoreboard: ties){
+                    indexes.add(scoreboards.indexOf(scoreboard)+1);
+                }
+                String labelText = "It's a tie between ";
+                for (int i = 0; i<indexes.size();i++){
+                    if (i<indexes.size()-1)
+                        labelText += "Player " + indexes.get(i) + ", ";
+                    else
+                        labelText += "and Player " + indexes.get(i) + "!";
+                }
+                hasPresentedWinMessage = true;
+            }
+            if (!hasPresentedWinMessage) {
+                DiceBarGUI.singleton.add(new Label(highestPlayer + " is the winner!"));
+                hasPresentedWinMessage = true;
+            }
+
+        }
+
+    }
+
 }

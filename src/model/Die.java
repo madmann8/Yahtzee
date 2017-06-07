@@ -7,13 +7,13 @@ import java.util.Random;
 /**
  * Created by Luke Mann on 5/17/17.
  */
-public class Dice {
+public class Die {
 
     public boolean held = false;
     public int value;
     public Listener listener = new Listener();
 
-    public Dice() {
+    public Die() {
        rollDie();
     }
 

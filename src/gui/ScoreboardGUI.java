@@ -14,7 +14,7 @@ import java.util.Objects;
  */
 
 
-class Scoreboard extends JPanel {
+class ScoreboardGUI extends JPanel {
 
 
     private AcesPanel acesPanel = new AcesPanel();
@@ -30,14 +30,14 @@ class Scoreboard extends JPanel {
     private SixesPanel sixesPanel = new SixesPanel();
     private YahtzeePanel yahtzeePanel = new YahtzeePanel();
     private ChancePanel chancePanel = new ChancePanel();
-    private ScorePanel scorePanel = new ScorePanel();
-    private TurnsPanel turnPanel = new TurnsPanel();
+    public ScorePanel scorePanel = new ScorePanel();
+    public TurnsPanel turnPanel = new TurnsPanel();
     private SkipTurnPanel skipTurnPanel = new SkipTurnPanel();
     Integer rollsRemaining = 3;
     private ArrayList<CellPanel> panels = new ArrayList<>();
 
 
-    Scoreboard() {
+    ScoreboardGUI() {
         setupViews();
         panels.add(acesPanel);
         panels.add(threeOfAKindPanel);
@@ -111,12 +111,12 @@ class Scoreboard extends JPanel {
             scorePanel.countLabel.setText("0");
 
             int i =0;
-            for (Dice die : DiceBarGUI.singelton.dice){
+            for (Die die : DiceBarGUI.singleton.dice){
                 die.held = true;
-                DiceBarGUI.singelton.buttons[i].setEnabled(false);
+//                DiceBarGUI.singleton.buttons[i].setEnabled(false);
                 i++;
             }
-            DiceBarGUI.singelton.reloadButton.setEnabled(false);
+            DiceBarGUI.singleton.reloadButton.setEnabled(false);
             for (CellPanel panel:panels){
                 panel.button.setEnabled(false);
             }
@@ -129,6 +129,7 @@ class Scoreboard extends JPanel {
 
     private class ScorePanel extends JPanel {
 
+
         void update() {
             Integer totalScore = 0;
             for (CellPanel panel : panels) {
@@ -139,28 +140,33 @@ class Scoreboard extends JPanel {
             turnPanel.update();
             rollsRemaining = 3;
             updateRollsRemaining();
-            DiceBarGUI.singelton.reloadButton.setEnabled(true);
+            DiceBarGUI.singleton.reloadButton.setEnabled(true);
             int i =0;
-            for (Dice die : DiceBarGUI.singelton.dice){
+            for (Die die : DiceBarGUI.singleton.dice){
                 die.held = false;
-                DiceBarGUI.singelton.buttons[i].setEnabled(true);
+//                DiceBarGUI.singleton.buttons[i].setEnabled(true);
                 i++;
             }
-            DiceBarGUI.singelton.reloadDice();
+            DiceBarGUI.singleton.reloadDice();
 
 
         }
 
-        private JLabel scoreLabel = new JLabel("0");
+        public JLabel scoreLabel = new JLabel("0");
         private JLabel countLabel = new JLabel("3");
 
         ScorePanel() {
             add(new JLabel("Total Score:"));
             add(scoreLabel);
-            add(new JLabel("Rolls Remaining"));
+            add(new JLabel(", Rolls Remaining:"));
             add(countLabel);
         }
     }
+
+    public Integer getCurrentScore() {
+        return Integer.valueOf(scorePanel.scoreLabel.getText());
+    }
+
     private class TurnsPanel extends JPanel {
 
         void update() {
@@ -181,13 +187,19 @@ class Scoreboard extends JPanel {
 
 
 
-        private JLabel countLabel = new JLabel("13");
+       JLabel countLabel = new JLabel("13");
 
         TurnsPanel() {
             add(new JLabel("Turns Remaining:"));
             add(countLabel);
         }
     }
+
+    public Integer getCurrentTurnCount() {
+        return Integer.valueOf(turnPanel.countLabel.getText());
+    }
+
+
 
     private Integer bestValue(ArrayList<CombinationType> queuedCombos) {
         Integer result = 0;
@@ -336,7 +348,7 @@ class Scoreboard extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Integer value = 0;
-                for (Integer num : DiceBarGUI.singelton.nums) {
+                for (Integer num : DiceBarGUI.singleton.nums) {
                     value += num;
                 }
                 button.setText(String.valueOf(value));
@@ -358,7 +370,7 @@ class Scoreboard extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Integer value = 0;
-                for (Integer num : DiceBarGUI.singelton.nums) {
+                for (Integer num : DiceBarGUI.singleton.nums) {
                     value += num;
                 }
                 button.setText(String.valueOf(value));
@@ -473,7 +485,7 @@ class Scoreboard extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Integer value = 0;
-                for (Integer num : DiceBarGUI.singelton.nums) {
+                for (Integer num : DiceBarGUI.singleton.nums) {
                     value += num;
                 }
                 button.setText(String.valueOf(value));
@@ -488,6 +500,7 @@ class Scoreboard extends JPanel {
         for (CellPanel panel : panels) {
             panel.setEnabled(false);
             panel.queuedCombos.clear();
+            TurnManager.singleton.checkWin();
         }
     }
 
