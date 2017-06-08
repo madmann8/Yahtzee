@@ -98,24 +98,36 @@ class TurnManager {
                 if (value > highestScore) {
                     highestScore = value;
                     highestPlayer = "Player" + (scoreboards.indexOf(scoreboard) + 1);
+                    ties.clear();
                 }
                 if (value == highestScore){
                     ties.add(scoreboard);
                 }
             }
             if (!ties.isEmpty()){
-                ArrayList<Integer> indexes = new ArrayList<>();
-                for (ScoreboardGUI scoreboard: ties){
-                    indexes.add(scoreboards.indexOf(scoreboard)+1);
+                if (!hasPresentedWinMessage) {
+                    if (ties.size() == 1)
+                        DiceBarGUI.singleton.add(new Label(
+                                "Player " +
+                                        (scoreboards.indexOf(ties.get(0)) + 1)
+                                        + " is the winner!"
+                        ));
+                    else {
+                    ArrayList<Integer> indexes = new ArrayList<>();
+                    for (ScoreboardGUI scoreboard : ties) {
+                        indexes.add(scoreboards.indexOf(scoreboard) + 1);
+                    }
+                    String labelText = "It's a tie between ";
+                    for (int i = 0; i < indexes.size(); i++) {
+                        if (i < indexes.size() - 1)
+                            labelText += "Player " + indexes.get(i) + ", ";
+                        else
+                            labelText += "and Player " + indexes.get(i) + "!";
+                    }
+                    DiceBarGUI.singleton.add(new Label(labelText));
                 }
-                String labelText = "It's a tie between ";
-                for (int i = 0; i<indexes.size();i++){
-                    if (i<indexes.size()-1)
-                        labelText += "Player " + indexes.get(i) + ", ";
-                    else
-                        labelText += "and Player " + indexes.get(i) + "!";
+                    hasPresentedWinMessage = true;
                 }
-                hasPresentedWinMessage = true;
             }
             if (!hasPresentedWinMessage) {
                 DiceBarGUI.singleton.add(new Label(highestPlayer + " is the winner!"));

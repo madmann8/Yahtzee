@@ -14,6 +14,7 @@ import java.util.ArrayList;
  * Created by lukemann on 5/24/17.
  */
 
+// This class represents the Dice Bar GUI
 class DiceBarGUI extends JPanel{
     ArrayList<Die> dice = new ArrayList<>();
 

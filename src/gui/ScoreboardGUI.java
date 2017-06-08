@@ -13,10 +13,8 @@ import java.util.Objects;
  * Created by Luke Mann on 5/24/17.
  */
 
-
+//This class represnts each player's scoreboard GUI
 class ScoreboardGUI extends JPanel {
-
-
     private AcesPanel acesPanel = new AcesPanel();
     private ThreeOfAKindPanel threeOfAKindPanel = new ThreeOfAKindPanel();
     private TwosPanel twosPanel = new TwosPanel();
@@ -135,6 +133,9 @@ class ScoreboardGUI extends JPanel {
             for (CellPanel panel : panels) {
                 totalScore += lValue(panel);
             }
+            Integer upperScore = 0;
+            if (lValue(acesPanel) + lValue(twosPanel) + lValue(threesPanel) + lValue(foursPanel)
+                    +lValue(fivesPanel) + lValue(sixesPanel) >= 63) totalScore += 35;
             scoreLabel.setText(String.valueOf(totalScore));
             countLabel.setText("3");
             turnPanel.update();
@@ -439,6 +440,7 @@ class ScoreboardGUI extends JPanel {
     }
 
     private class YahtzeePanel extends CellPanel {
+        private boolean hasSetFirst  = false;
         YahtzeePanel() {
             super();
             label.setText("Yahtzee");
@@ -449,9 +451,43 @@ class ScoreboardGUI extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Integer value = bestValue(queuedCombos);
-                button.setText(String.valueOf(value));
+                if (!hasSetFirst) {
+                    button.setText(String.valueOf(value));
+                    hasSetFirst = true;
+                    clearPanels();
+                    scorePanel.update();
+                }
+                else {
+                    button.setText(String.valueOf(Integer.valueOf(button.getText()) + 100));
+                    switch (queuedCombos.get(0)){
+                        case YATZEE1:
+                            if (acesPanel.canSet){
+                                acesPanel.button.doClick();
+                            }
+                        case YATZEE2:
+                            if (acesPanel.canSet){
+                                acesPanel.button.doClick();
+                            }
+                        case YATZEE3:
+                            if (acesPanel.canSet){
+                                acesPanel.button.doClick();
+                            }
+                        case YATZEE4:
+                            if (acesPanel.canSet){
+                                acesPanel.button.doClick();
+                            }
+                        case YATZEE5:
+                            if (acesPanel.canSet){
+                                acesPanel.button.doClick();
+                            }
+                        case YATZEE6:
+                            if (acesPanel.canSet){
+                                acesPanel.button.doClick();
+                            }
+                    }
+                }
+                button.setEnabled(false);
                 clearPanels();
-                canSet = false;
                 scorePanel.update();
             }
         }

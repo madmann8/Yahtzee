@@ -14,7 +14,7 @@ public class Combination {
     private HashMap<CombinationType, Integer> mDiceComboValues = new HashMap<>();
     private HashMap<CombinationType, String> mStringMap = new HashMap<>();
 
-    Combination() {
+    private Combination() {
         toMapDiceCombinations();
         toMapString();
         toMapCombinationValues();
@@ -547,7 +547,7 @@ public class Combination {
         for (Map.Entry<CombinationType, Integer[]> combo : combination.mDiceCombosMap.entrySet()) {
             CombinationType key = combo.getKey();
             Integer[] value = combo.getValue();
-            ArrayList<Integer> betterList = new ArrayList<Integer>();
+            ArrayList<Integer> betterList = new ArrayList<>();
             Collections.addAll(betterList, value);
             if (isSubset(betterList,list)){
                 results.add(key);
@@ -562,14 +562,6 @@ public class Combination {
         return combination.mDiceComboValues.get(combinationType);
     }
 
-    static void arrayToString(ArrayList<CombinationType> combinationTypes) {
-        Combination combination = new Combination();
-        for (CombinationType combinationType : combinationTypes){
-            String words= combination.mStringMap.get(combinationType);
-            System.out.println(words);
-        }
-    }
-
     private static boolean isSubset(ArrayList<Integer> a1, ArrayList<Integer> a2) {
         ArrayList<Integer> copy1 = new ArrayList<>();
         ArrayList<Integer> copy2 = new ArrayList<>();
@@ -579,8 +571,6 @@ public class Combination {
         for (Integer num: a2){
             copy2.add(num);
         }
-
-
         for(int e = 0;e<copy1.size();e++){
             Integer a1Int = copy1.get(e);
             for (int i = 0; i<copy2.size();i++) {

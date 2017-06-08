@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
  * Created by Luke Mann on 6/2/17.
  */
 
-
+// A popup that occurs when the game begins that asks for the number of players
 class StartGameGUI extends JPanel{
     private JTextField numberOfPlayers = new JTextField();
     private JButton startButton = new JButton("Start");
